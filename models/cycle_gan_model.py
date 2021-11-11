@@ -190,9 +190,7 @@ class CycleGANModel(BaseModel):
         # Backward cycle loss || G_A(G_B(B)) - B||
         self.loss_cycle_B = self.criterionCycle(self.rec_B, self.real_B) * lambda_B
         # combined loss and calculate gradientss
-        print('First input in array', self.fake_B[0])
-        print('Second input in array', self.fake_B[1])
-        print('Third input in array', self.fake_B[2])
+        print('First input in array', len(self.fake_B))
         self.loss_TV = self.tv_loss(self.fake_B)
 
         self.loss_G = self.loss_G_A + self.loss_G_B + self.loss_cycle_A + self.loss_cycle_B + self.loss_idt_A + self.loss_idt_B + self.loss_TV
