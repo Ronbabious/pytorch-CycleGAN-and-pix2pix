@@ -148,7 +148,7 @@ class CycleGANModel(BaseModel):
         fake_A = self.fake_A_pool.query(self.fake_A)
         self.loss_D_B = self.backward_D_basic(self.netD_B, self.real_A, fake_A)
 
-    def tv_loss(img):
+    def tv_loss(img,placeholder):
         """
         Compute total variation loss.
         Inputs:
